@@ -12,7 +12,7 @@ from telegram.ext import (
     CallbackQueryHandler
 )
 
-BOT_TOKEN = '7874980671:AAEzA8xiMp48sekkMca-grTx1nH-rzqW6mY'
+BOT_TOKEN = ''
 ADMIN_ID = 5201926556
 command = "d"
 user_states = {}
