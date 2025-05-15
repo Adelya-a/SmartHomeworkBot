@@ -388,7 +388,7 @@ async def mail(update, context, usid):
                 s = ""
                 for el in crazy_fast:
                     s += (f"🔴 Предмет: {el[0]}\n     Задание: {el[1]}\n    "
-                          f"выполнить до {el[2]}\n\n")
+                          f"выполнить до {'.'.join(reversed(el[2].split('-')))}\n\n")
                 cursor.execute(
                     "SELECT subject, task, deadline FROM deadlines "
                     "WHERE (deadline = ?) and user_id = ?",
@@ -396,7 +396,7 @@ async def mail(update, context, usid):
                 crazy_fast = cursor.fetchall()
                 for el in crazy_fast:
                     s += (f"🟡 Предмет: {el[0]}\n     Задание: {el[1]}\n    "
-                          f"выполнить до {el[2]}\n\n")
+                          f"выполнить до {'.'.join(reversed(el[2].split('-')))}\n\n")
                 cursor.execute(
                     "SELECT subject, task, deadline FROM deadlines "
                     "WHERE (deadline != ? and deadline != ?) and user_id = ?",
@@ -436,7 +436,7 @@ def main():
     application.add_handler(CommandHandler("admin_broadcast", admin_broadcast))
     application.add_handler(CommandHandler("set_mail", add_mail))
 
-    application.job_queue.run_repeating(scheduled_broadcast, interval=86400, first=180)
+    application.job_queue.run_repeating(scheduled_broadcast, interval=86400, first=10)
 
     application.run_polling()
 
