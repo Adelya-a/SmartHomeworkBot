@@ -1,7 +1,4 @@
 import sqlite3
-from datetime import time
-from telegram.constants import ParseMode
-import pytz
 import asyncio
 import yagmail
 from datetime import datetime, timedelta
@@ -15,7 +12,7 @@ from telegram.ext import (
     CallbackQueryHandler
 )
 
-BOT_TOKEN = ''
+BOT_TOKEN = '7874980671:AAEzA8xiMp48sekkMca-grTx1nH-rzqW6mY'
 ADMIN_ID = 5201926556
 command = "d"
 user_states = {}
