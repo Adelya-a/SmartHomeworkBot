@@ -12,7 +12,16 @@ from telegram.ext import (
     CallbackQueryHandler
 )
 
-BOT_TOKEN = ''
+def get_token():
+    try:
+        with open('.env') as f:
+            for line in f:
+                if line.startswith('TELEGRAM_BOT_TOKEN='):
+                    return line.split('=')[1].strip()
+    except:
+        return None
+
+BOT_TOKEN = get_token()
 ADMIN_ID = 5201926556
 command = "d"
 user_states = {}
