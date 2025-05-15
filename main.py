@@ -35,6 +35,7 @@ def init_db():
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         user_id INTEGER,
         subject TEXT,
+        deadline TEXT,
         task TEXT,
         reminder_sent INTEGER DEFAULT 0,
         completed INTEGER DEFAULT 0)''')
